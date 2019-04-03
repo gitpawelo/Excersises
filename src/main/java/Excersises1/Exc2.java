@@ -18,6 +18,12 @@ public class Exc2 {
              ) {
             System.out.println(resultArray + " ");
         }
+
+        for (int resultArray: array
+                ) {
+            System.out.print(resultArray + " " + "\t");
+        }
+
     }
 
 }
