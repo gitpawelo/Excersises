@@ -24,6 +24,8 @@ public class Exc2 {
             System.out.print(resultArray + " " + "\t");
         }
 
+
+
     }
 
 }
