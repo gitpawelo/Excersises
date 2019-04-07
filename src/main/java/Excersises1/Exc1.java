@@ -1,16 +1,15 @@
 package Excersises1;
 
+/*
+ * 1. Napisz program "Hello world" w javie - krótki program, którego wynikiem działania będzie wyświetlenie napisu "Hello World"
+ * */
+
+
 public class Exc1 {
 
     public static void main(String[] args) {
 
-        int num1, num2;
-
-        num1 = 10;
-
-        num2 = num1;
-
-        System.out.println(num1==num2);
+        System.out.println("Hello World!");
 
     }
 

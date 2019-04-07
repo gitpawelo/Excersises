@@ -1,30 +1,24 @@
 package Excersises1;
 
-import java.util.Random;
+/*
+2. Napisz program, w którym zadeklarujesz zmienne wszystkich typów prostych. Wymyśl sensowne nazwy dla tych zmiennych. Wypisz te zmienne w konsoli.
+ */
 
 public class Exc2 {
 
     public static void main(String[] args) {
 
-        int [] array = new int[10];
+        byte varByte = 127;
+        short varShort = 32231;
+        int varInt = 271819384;
+        double varDouble = 1.1234;
+        float varFloat = 1.212f;
 
-        Random random = new Random(20);
-        for (int i = 0; i <10 ; i++) {
-
-            array[i] = random.nextInt(50);
-        }
-
-        for (int resultArray: array
-             ) {
-            System.out.println(resultArray + " ");
-        }
-
-        for (int resultArray: array
-                ) {
-            System.out.print(resultArray + " " + "\t");
-        }
-
-
+        System.out.println("Byte: " + varByte+ "\n" +
+                            "Short: " + varShort + "\n" +
+                            "Integer: " + varInt + "\n" +
+                            "Double: " + varDouble +  "\n" +
+                            "Float: " + varFloat);
 
     }
 
