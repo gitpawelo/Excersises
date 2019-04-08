@@ -11,7 +11,7 @@ public class Exc5 {
         methods.substract(10, 2);
         methods.multiply(10, 2);
         methods.divide(10, 2);
-        methods.divide(10, 0);
+        methods.divide2(10, 0);
         methods.modulo(10, 3);
 
     }
