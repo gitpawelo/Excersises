@@ -1,6 +1,6 @@
-package Excersises1;
+package Methods;
 
-public class Methods {
+public class Methods5 {
 
     public void add(int num1, int num2) {
         System.out.println("Wynik dodawania: " + (num1 + num2));
@@ -28,12 +28,14 @@ public class Methods {
             System.out.println(num1 / num2);
         } catch (ArithmeticException e) {
             System.out.println("Nie można dzielić przez zero!");
-        }
 
+        }
     }
 
     public void modulo(int num1, int num2) {
         System.out.println("Reszta z dzielenia: " + (num1 % num2));
     }
+
+
 
 }

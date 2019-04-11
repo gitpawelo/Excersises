@@ -2,7 +2,7 @@ package Excersises1;
 /*
 2.b Napisz program, w którym dokonasz konwersji wszystkich typów prostych na typy osłonowe i odwrotnie. Wypisz pary (prosty, osłonowy)
  */
-public class Exc4 {
+public class Main4 {
     public static void main(String [] args){
 
         Byte varByte = Byte.valueOf("-128");

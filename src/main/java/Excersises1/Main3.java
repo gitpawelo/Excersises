@@ -4,7 +4,7 @@ package Excersises1;
 2.a Napisz program, w którym zadeklarujesz zmienne wszystkich typów prostych, ale nie przypisuj im wartości jako stałej,
 ale wynik jakiegoś wyrażenia. Wypisz te zmienne w konsoli.
  */
-public class Exc3 {
+public class Main3 {
 
     public static void main(String[] args) {
 
