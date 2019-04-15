@@ -6,13 +6,22 @@ package Excersises1;
 4.b Zrealizuj zabezpieczenie za pomocą wyjątku
  */
 
+import Methods.MethodsAdult;
+
+import java.util.Scanner;
+
 public class Main6 {
 
-    public static void main(String args []){
+    public static void main(String args[]) {
 
         int age;
+        Scanner inputValue = new Scanner(System.in);
+        MethodsAdult methodsAdult = new MethodsAdult();
 
+        System.out.println("How old are are?");
 
+        age = inputValue.nextInt();
+        methodsAdult.checkAdult(age);
 
     }
 
