@@ -8,7 +8,7 @@ public class MethodsAdult {
 
             System.out.println("You are not adult my friend!");
 
-        } else if (age > 18 && age < 100) {
+        } else if (age >= 18 && age < 100) {
 
             System.out.println("You are adult! Want some bear?");
 
