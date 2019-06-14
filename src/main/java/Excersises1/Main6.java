@@ -6,6 +6,7 @@ package Excersises1;
 4.b Zrealizuj zabezpieczenie za pomocą wyjątku
  */
 
+import Classes.Adult;
 import Methods.MethodsAdult;
 
 import java.util.Scanner;
@@ -14,14 +15,19 @@ public class Main6 {
 
     public static void main(String args[]) {
 
-        int age;
+        int age = 0;
         Scanner inputValue = new Scanner(System.in);
         MethodsAdult methodsAdult = new MethodsAdult();
+        Adult adult = new Adult(age);
 
         System.out.println("How old are are?");
 
         age = inputValue.nextInt();
+
+        System.out.println(adult.toString());
+
         methodsAdult.checkAdult(age);
+
 
     }
 
