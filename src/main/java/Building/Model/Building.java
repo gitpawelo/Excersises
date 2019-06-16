@@ -15,6 +15,7 @@ public class Building {
     private double length;
 
     public double area(){
+        System.out.println(width*length);
         return width * length;
     }
 }
