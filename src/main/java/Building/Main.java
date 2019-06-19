@@ -1,20 +1,22 @@
 package Building;
 
 import Building.Model.Apartment;
-import Building.Model.Building;
 import Building.Model.Skycrapper;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ArithmeticException {
 
-        Apartment apartment = new Apartment(10.0, 10.0, 10.0);
-        apartment.area();
+        try {
+            Apartment apartment = new Apartment(10.0, 0, 10.0, 2);
+            apartment.area();
+            Skycrapper skycrapper = new Skycrapper(50, 30, 40, 20);
+            skycrapper.area();
 
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
 
-
-        Skycrapper skycrapper = new Skycrapper(50, 30, 40, 28);
-        skycrapper.area();
 
     }
 
