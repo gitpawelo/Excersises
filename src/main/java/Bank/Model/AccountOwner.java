@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 public class AccountOwner {
 
     private String name, surname;
-    private int age;
-    private boolean premiumAccount;
+    private int PIN;
 
 }

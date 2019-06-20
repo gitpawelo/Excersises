@@ -7,13 +7,17 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class PremiumAccount implements BankTransaction {
 
     private BigDecimal balance;
     private AccountOwner accountOwner;
-    private BigDecimal debit;
+    private BigDecimal maxDebit = new BigDecimal(-10000);
+
+    public PremiumAccount(BigDecimal balance, AccountOwner accountOwner){
+        this.balance = balance;
+        this.accountOwner = accountOwner;
+    }
 
 
     public void takeDebit(BigDecimal howMuch){
@@ -22,14 +26,20 @@ public class PremiumAccount implements BankTransaction {
 
     @Override
     public void payIntoAccount(BigDecimal howMuch) {
-        System.out.println("Wpłacasz " + howMuch + "zł na konto.");
+        System.out.println("Wpłacasz " + howMuch + "PLN na konto.");
         balance = getBalance().add(howMuch);
-        System.out.printf("Na Twoim koncie jest teraz %s", balance);
+        System.out.printf("Na Twoim koncie jest teraz %s\n", balance);
     }
 
     @Override
     public void withdrawFromAccount(BigDecimal howMuch) {
-
+        System.out.println("Chcesz wypłacić " + howMuch + "PLN z konta. Trwa sprawdzanie dostępnych środków...");
+        if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
+            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Możesz wypłacić nie więcej niż " + getBalance() + " PLN.");
+        }else{
+            setBalance(getBalance().subtract(howMuch));
+            System.out.println("Wyplaciles " + howMuch + " PLN z konta. Pozostało Ci " + getBalance() + " PLN.");
+        }
     }
 
     @Override
