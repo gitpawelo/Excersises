@@ -15,7 +15,7 @@ public class BankTest {
     public void shouldPayIntoAccount() {
         //given
         AccountOwner accountOwner = new AccountOwner("Jan", "Kowalski", 1234);
-        BasicAccount bankAccount = new BasicAccount(new BigDecimal(10000),accountOwner);
+        BasicAccount bankAccount = new BasicAccount(new BigDecimal(10000), accountOwner);
         //when
         bankAccount.payIntoAccount(new BigDecimal(3000));
         //then
@@ -60,41 +60,51 @@ public class BankTest {
 
     @Test
     public void shouldTransferFromBasicAccToBasicAcc() {
-
-
+        //given
+        AccountOwner accountOwner = new AccountOwner("Jan", "Nowak", 7896);
+        BasicAccount basicAccount = new BasicAccount(new BigDecimal(10000), accountOwner);
+        BasicAccount basicAccount1 = new BasicAccount(new BigDecimal(10000), accountOwner);
+        //when
+        basicAccount.transferIntoBasicBankAccount(basicAccount1, new BigDecimal(10000));
+        //then
+        assertTrue(basicAccount.getBalance().equals(new BigDecimal(0)) && basicAccount1.getBalance().equals(new BigDecimal(20000)));
 
     }
 
     @Test
     public void shouldTransferFromBasicAccToPremiumAcc() {
-
-    }
-
-    @Test
-    public void shouldTransferBetweenAccounts2() {
-
-    }
-
-    @Test
-    public void shouldTakeCredit(){
+        //given
+        AccountOwner accountOwner = new AccountOwner("Jan", "Nowak", 7896);
+        BasicAccount basicAccount = new BasicAccount(new BigDecimal(10000), accountOwner);
+        PremiumAccount premiumAccount = new PremiumAccount(new BigDecimal(10000), accountOwner);
+        //when
+        basicAccount.transferIntoPremiumkAccount(premiumAccount, new BigDecimal(10000));
+        //then
+        assertTrue(basicAccount.getBalance().equals(new BigDecimal(0)) && premiumAccount.getBalance().equals(new BigDecimal(20000)));
 
 
     }
 
     @Test
-    public void shouldNoTakeMoreCreditThanAccountBalance(){
-
+    public void shouldTakeDebet() {
+        //given
+        AccountOwner accountOwner = new AccountOwner("Jan", "Nowak", 7896);
+        PremiumAccount premiumAccount = new PremiumAccount(new BigDecimal(10000), accountOwner);
+        //when
+        premiumAccount.takeDebit(new BigDecimal(19000));
+        //then
+        assertTrue(premiumAccount.getBalance().equals(new BigDecimal(-9000)));
 
     }
 
     @Test
-    public void shouldTakeDebet(){
-
-    }
-
-    @Test
-    public void shouldTakeNoMoreThanMaxDebet(){
-
+    public void shouldTakeNoMoreThanMaxDebet() {
+        AccountOwner accountOwner = new AccountOwner("Jan", "Nowak", 7896);
+        PremiumAccount premiumAccount = new PremiumAccount(new BigDecimal(10000), accountOwner);
+        //when
+        premiumAccount.takeDebit(new BigDecimal(21000));
+        //then
+        assertTrue(premiumAccount.getBalance().equals(new BigDecimal(10000)));
     }
 
 }
