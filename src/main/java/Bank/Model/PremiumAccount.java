@@ -42,7 +42,7 @@ public class PremiumAccount implements BankTransaction {
     public void withdrawFromAccount(BigDecimal howMuch) {
         System.out.println("Chcesz wypłacić " + howMuch + "PLN z konta. Trwa sprawdzanie dostępnych środków...");
         if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
-            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Możesz wypłacić nie więcej niż " + getBalance().subtract(maxDebit) + " PLN.");
+            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Możesz wypłacić nie więcej niż " + getBalance() + " PLN.");
         }else{
             setBalance(getBalance().subtract(howMuch));
             System.out.println("Wyplaciles " + howMuch + " PLN z konta. Pozostało Ci " + getBalance() + " PLN.");
@@ -56,7 +56,7 @@ public class PremiumAccount implements BankTransaction {
             System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Nie możesz przelać więcej niż " + getBalance() + " PLN.");
         }else{
             setBalance(getBalance().subtract(howMuch));
-            basicAccount.setBalance(getBalance().add(howMuch));
+            basicAccount.setBalance(basicAccount.getBalance().add(howMuch));
             System.out.println("Przelałeś " + howMuch + " ze swojego konta. Na Twoim koncie pozostało " + getBalance() + "PLN.\n" +
                     "Na koncie na które przelałeś pieniądze jest " + basicAccount.getBalance() + "PLN.");
         }
@@ -69,7 +69,7 @@ public class PremiumAccount implements BankTransaction {
             System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Nie możesz przelać więcej niż " + getBalance() + " PLN.");
         }else{
             setBalance(getBalance().subtract(howMuch));
-            premiumAccount.setBalance(getBalance().add(howMuch));
+            premiumAccount.setBalance(premiumAccount.getBalance().add(howMuch));
             System.out.println("Przelałeś " + howMuch + " ze swojego konta. Na Twoim koncie pozostało " + getBalance() + "PLN.\n" +
                     "Na koncie na które przelałeś pieniądze jest " + premiumAccount.getBalance() + "PLN.");
         }

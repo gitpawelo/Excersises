@@ -1,5 +1,8 @@
-package Building.Model;
+package Building;
 
+import Building.Model.Apartment;
+import Building.Model.Building;
+import Building.Model.Skycrapper;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
