@@ -21,6 +21,13 @@ public class PremiumAccount implements BankTransaction {
 
 
     public void takeDebit(BigDecimal howMuch){
+        System.out.println("Chcesz wziążć debet w wysokości " + howMuch + "PLN. Trwa sprawdzanie dostępnych środków...");
+        if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
+            System.out.println("Możesz wziążć maksymalnie " + getBalance().subtract(maxDebit));
+        }else{
+            balance = getBalance().subtract(howMuch);
+            System.out.println("Twój obecny stan konta wynosi: " + getBalance());
+        }
 
     }
 
@@ -35,7 +42,7 @@ public class PremiumAccount implements BankTransaction {
     public void withdrawFromAccount(BigDecimal howMuch) {
         System.out.println("Chcesz wypłacić " + howMuch + "PLN z konta. Trwa sprawdzanie dostępnych środków...");
         if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
-            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Możesz wypłacić nie więcej niż " + getBalance() + " PLN.");
+            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Możesz wypłacić nie więcej niż " + getBalance().subtract(maxDebit) + " PLN.");
         }else{
             setBalance(getBalance().subtract(howMuch));
             System.out.println("Wyplaciles " + howMuch + " PLN z konta. Pozostało Ci " + getBalance() + " PLN.");
@@ -44,11 +51,27 @@ public class PremiumAccount implements BankTransaction {
 
     @Override
     public void transferIntoBasicBankAccount(BasicAccount basicAccount, BigDecimal howMuch) {
-
+        System.out.println("Chcesz wypłacić " + howMuch + "PLN z konta. Trwa sprawdzanie dostępnych środków...");
+        if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
+            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Nie możesz przelać więcej niż " + getBalance() + " PLN.");
+        }else{
+            setBalance(getBalance().subtract(howMuch));
+            basicAccount.setBalance(getBalance().add(howMuch));
+            System.out.println("Przelałeś " + howMuch + " ze swojego konta. Na Twoim koncie pozostało " + getBalance() + "PLN.\n" +
+                    "Na koncie na które przelałeś pieniądze jest " + basicAccount.getBalance() + "PLN.");
+        }
     }
 
     @Override
     public void transferIntoPremiumkAccount(PremiumAccount premiumAccount, BigDecimal howMuch) {
-
+        System.out.println("Chcesz wypłacić " + howMuch + "PLN z konta. Trwa sprawdzanie dostępnych środków...");
+        if (getBalance().subtract(howMuch).compareTo(maxDebit)<0){
+            System.out.println("Masz za mało pieniędzy na wypłatę " + howMuch + " PLN. Nie możesz przelać więcej niż " + getBalance() + " PLN.");
+        }else{
+            setBalance(getBalance().subtract(howMuch));
+            premiumAccount.setBalance(getBalance().add(howMuch));
+            System.out.println("Przelałeś " + howMuch + " ze swojego konta. Na Twoim koncie pozostało " + getBalance() + "PLN.\n" +
+                    "Na koncie na które przelałeś pieniądze jest " + premiumAccount.getBalance() + "PLN.");
+        }
     }
 }
