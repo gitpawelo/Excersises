@@ -33,17 +33,6 @@ public class CharCounter {
             }
         }
 
-
-//        char[] c = sentence.replace(" ", "").toCharArray();
-//
-//        for (char result: c
-//             ) {
-//            System.out.println(result);
-//        }
-//
-//        for (int i = 'a'; i < 'z'; i++) {
-//            System.out.println(i);
-//        }
     }
 
 }
