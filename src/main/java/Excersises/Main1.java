@@ -1,4 +1,4 @@
-package Excersises1;
+package Excersises;
 
 /*
  * 1. Napisz program "Hello world" w javie - krótki program, którego wynikiem działania będzie wyświetlenie napisu "Hello World"

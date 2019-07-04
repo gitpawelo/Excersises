@@ -1,4 +1,4 @@
-package Excersises1;
+package Excersises;
 
 import Methods.Methods5;
 

@@ -1,4 +1,4 @@
-package Excersises1;
+package Excersises;
 /*
 2.b Napisz program, w którym dokonasz konwersji wszystkich typów prostych na typy osłonowe i odwrotnie. Wypisz pary (prosty, osłonowy)
  */

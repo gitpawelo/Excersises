@@ -1,4 +1,4 @@
-package Excersises1;
+package Excersises;
 
 /*
 4. Napisz program, który zapyta ożytkownika o wiek, a następnie wypisze czy jest pełnoletni

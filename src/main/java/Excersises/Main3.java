@@ -1,4 +1,4 @@
-package Excersises1;
+package Excersises;
 
 /*
 2.a Napisz program, w którym zadeklarujesz zmienne wszystkich typów prostych, ale nie przypisuj im wartości jako stałej,
