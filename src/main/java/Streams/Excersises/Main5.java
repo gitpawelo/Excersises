@@ -34,5 +34,6 @@ public class Main5 {
                 .mapToInt(name -> name.length())
                 .summaryStatistics();
         System.out.println(statistics.getSum());
+
     }
 }
